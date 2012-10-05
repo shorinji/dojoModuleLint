@@ -1,5 +1,5 @@
-Dojo Module Linter
-==================
+Dojo Module Lint
+================
 
 Summary
 -------
@@ -7,5 +7,5 @@ The purpose of this script is to help spot errors while coding modules for the J
 
 Requirements
 ------------
-* Node.js
-* Uglify.js
+- Node.js
+- Uglify.js

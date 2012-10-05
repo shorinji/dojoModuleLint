@@ -2,10 +2,11 @@
 
 "use strict";
 
+var uglifyPath = "../UglifyJS/";
 var assert = require('assert'),
 	fs = require('fs'),
 	util = require('util'),
-	parser = require('./UglifyJS/uglify-js').parser;
+	parser = require(uglifyPath + 'uglify-js').parser;
 
 if(process.argv.length < 3) {
 	console.error("Usage: %s filename.js", "dml");
@@ -45,7 +46,7 @@ process.exit();
 try {
 	var tree = parser.parse( fileContents );
 } catch(e) {
-	console.error("PARSE ERROR: %s", e);
+	console.error("PARSE ERROR: '%s' [line:%s pos:%s col:%s]\n\nTry running jslint/jshint on the file!", e.message, e.line, e.pos, e.col);
 	process.exit();
 }
 
@@ -85,7 +86,7 @@ assert.equal(defineCallback[0], 'function', 'Second argument to define must be f
 var numDependencies = defineDependencies[1].length;
 var numCallbackArgs = defineCallbackArgs.length;
 
-assert.equal(numDependencies, numCallbackArgs, "Number of dependencies does not match number of callback arguments!");
+assert.equal(numDependencies, numCallbackArgs, "Number of module dependencies does not match number of callback arguments! [" + numDependencies + " != " + numCallbackArgs + "]");
 
 //console.log("\nXXX: %s ",  util.inspect(defineDependencies, true, null, true) );
 
