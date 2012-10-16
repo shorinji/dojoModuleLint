@@ -7,5 +7,5 @@ The purpose of this script is to help spot errors while coding modules for the J
 
 Requirements
 ------------
-- Node.js
-- Uglify.js
+- [Node] (http://nodejs.org)
+- [Acorn](http://marijnhaverbeke.nl/acorn/)
